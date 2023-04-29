@@ -1,23 +1,29 @@
 {
-  "name": "ffmpeg-on-progress",
+  "name": "ffmpeg-on-progress-ts",
+  "type": "module",
   "version": "1.0.0",
   "description": "Utility for robustly reporting progress with fluent-ffmpeg.",
   "main": "index.js",
-  "repository": "transitive-bullshit/ffmpeg-on-progress",
-  "author": "Travis Fischer <travis@automagical.ai>",
+  "types": "index.d.ts",
+  "repository": "HeroClay/ffmpeg-on-progress-ts",
+  "authors": [
+    "Travis Fischer <travis@automagical.ai>",
+    "Fabian <spiele2014fs@gmail.com>"
+  ],
   "license": "MIT",
-  "scripts": {
-    "test": "ava -v && standard"
-  },
   "keywords": [
     "ffmpeg",
-    "fluent-ffmpeg"
+    "fluent-ffmpeg",
+    "typescript"
   ],
+  "scripts": {
+    "build": "tsc --project tsconfig.json"
+  },
   "devDependencies": {
-    "ava": "^0.25.0",
+    "@types/hh-mm-ss": "^1.2.1",
     "fluent-ffmpeg": "^2.1.2",
-    "standard": "^11.0.0",
-    "tempy": "^0.2.1"
+    "tsc": "^2.0.4",
+    "typescript": "^5.0.4"
   },
   "dependencies": {
     "hh-mm-ss": "^1.2.0"

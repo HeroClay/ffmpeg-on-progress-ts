@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "target": "es6",
+      "allowJs": true,
+      "strict": true,
+      "skipLibCheck": true,
+      "module": "node16",
+      "esModuleInterop": true,
+      "noImplicitAny": true,
+      "resolveJsonModule": true
+    },
+    "include": ["index.ts"],
+  }
+  

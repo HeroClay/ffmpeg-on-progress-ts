@@ -2,8 +2,6 @@
 
 > Utility for robustly reporting ffmpeg command progress with fluent-ffmpeg.
 
-[![NPM](https://img.shields.io/npm/v/ffmpeg-on-progress.svg)](https://www.npmjs.com/package/ffmpeg-on-progress) [![Build Status](https://travis-ci.com/transitive-bullshit/ffmpeg-on-progress.svg?branch=master)](https://travis-ci.com/transitive-bullshit/ffmpeg-on-progress) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-
 Some ffmpeg commands aren't capable fo producing [progress](https://github.com/fluent-ffmpeg/node-fluent-ffmpeg#progress-transcoding-progress-information) events, such as when the input is a stream or when using multiple inputs. This simple utility allows you to accurately report progress in these cases by looking at the number of frames ffmpeg has processed with the caveat that you need to know the expected output's duration ahead of time.
 
 In cases where [fluent-ffmpeg](https://github.com/fluent-ffmpeg/node-fluent-ffmpeg) produces a valid progress event, this module is a noop.
@@ -11,18 +9,19 @@ In cases where [fluent-ffmpeg](https://github.com/fluent-ffmpeg/node-fluent-ffmp
 ## Install
 
 ```bash
-npm install --save ffmpeg-on-progress
+npm install --save ffmpeg-on-progress-ts
 # or
-yarn add ffmpeg-on-progress
+yarn add ffmpeg-on-progress-ts
 ```
 
 ## Usage
 
-```js
-const ffmpeg = require('fluent-ffmpeg')
-const ffmpegOnProgress = require('ffmpeg-on-progress')
+```ts
+import ffmpeg from 'fluent-ffmpeg'
+import ffmpegOnProgress from 'ffmpeg-on-progress-ts'
+import type { ProgressFunction } from 'ffmpeg-on-progress-ts'
 
-const logProgress = (progress, event) => {
+const logProgress: ProgressFunction = (progress, event) => {
   // progress is a floating point number from 0 to 1
   console.log('progress', (progress * 100).toFixed())
 }
@@ -38,11 +37,6 @@ const cmd = ffmpeg('input.avi')
 
 ## Related
 
+- [ffmpeg-on-progress](https://github.com/transitive-bullshit/ffmpeg-on-progress) - The JS version
 - [fluent-ffmpeg](https://github.com/fluent-ffmpeg/node-fluent-ffmpeg)
 - [awesome-ffmpeg](https://github.com/transitive-bullshit/awesome-ffmpeg) - A curated list of awesome ffmpeg resources with a focus on JavaScript.
-
-## License
-
-MIT © [Travis Fischer](https://github.com/transitive-bullshit)
-
-Support my OSS work by <a href="https://twitter.com/transitive_bs">following me on twitter <img src="https://storage.googleapis.com/saasify-assets/twitter-logo.svg" alt="twitter" height="24px" align="center"></a>
